@@ -1,132 +1,261 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Series | CinePru</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series | CinePru</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================
+           DİĞER SAYFALARLA AYNI PROFİL MENÜSÜ CSS AYARLARI
+           ========================================== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #0f0f0f;
+            position: relative;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .profile-trigger:hover {
+            color: red;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #141414;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 100;
+            border-radius: 4px;
+            border: 1px solid #222;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: #ffffff !important; /* Yazı rengi tam beyaz */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: red;
+            color: #fff !important;
+        }
+
+        .profile-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobilde Navbar Düzeni Ayarı */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 15px;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .top-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .top-nav a {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+
+            .profile-dropdown {
+                width: 100%;
+                text-align: center;
+            }
+
+            .profile-trigger {
+                justify-content: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: #1a1a1a;
+                border: none;
+                margin-top: 5px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <header class="header">
-  <h1>CinePru</h1>
+    <h1>CinePru</h1>
 
-  <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="movies.html">Movies</a>
-    <a href="series.html">Series</a>
-    <a href="favorites.html">Favorites</a>
-  </nav>
+    <div class="nav-container">
+        <nav class="top-nav">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="series.html">Series</a>
+        </nav>
+
+        <div class="profile-dropdown">
+            <div class="profile-trigger">Profilim ▼</div>
+            <div class="dropdown-menu">
+                <a href="profile.html">Profilim</a>
+                <a href="favorites.html">Favorites ❤️</a>
+                <a href="settings.html">Ayarlar</a>
+                <a href="history.html">Geçmiş</a>
+                <a href="#" onclick="logoutUser()" style="border-top: 1px solid #222; color: #ff3333;">Çıkış Yap 🚪</a>
+            </div>
+        </div>
+    </div>
 </header>
 
-<!-- HEADER -->
 <section class="series-header">
-  <h2>📺 Popular Series</h2>
-  <p>Binge-worthy shows & trending series</p>
+    <h2>📺 Popular Series</h2>
+    <p>Binge-worthy shows & trending series</p>
 </section>
 
-<!-- SERIES GRID -->
 <section class="series-grid">
 
-  <div class="series-card">
-    <img src="images/gameofthrones.jpg">
-    <div class="series-info">
-      <h3>Game of Thrones</h3>
-      <p>IMDb 9.5 • Fantasy</p>
+    <div class="series-card">
+        <img src="images/gameofthrones.jpg">
+        <div class="series-info">
+            <h3>Game of Thrones</h3>
+            <p>IMDb 9.5 • Fantasy</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/breakingbad.jpg">
-    <div class="series-info">
-      <h3>Breaking Bad</h3>
-      <p>IMDb 9.6 • Crime</p>
+    <div class="series-card">
+        <img src="images/breakingbad.jpg">
+        <div class="series-info">
+            <h3>Breaking Bad</h3>
+            <p>IMDb 9.6 • Crime</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/dark.jpg">
+        <div class="series-info">
+            <h3>Dark</h3>
+            <p>IMDb 8.8 • Sci-Fi</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/strangerthings.jpg">
-    <div class="series-info">
-      <h3>Stranger Things</h3>
-      <p>IMDb 8.7 • Horror</p>
+    <div class="series-card">
+        <img src="images/strangerthings.jpg">
+        <div class="series-info">
+            <h3>Stranger Things</h3>
+            <p>IMDb 8.7 • Horror</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/sherlock.jpg">
+        <div class="series-info">
+            <h3>Sherlock</h3>
+            <p>IMDb 9.1 • Mystery</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/chernobyl.jpg">
+        <div class="series-info">
+            <h3>Chernobyl</h3>
+            <p>IMDb 9.4 • Drama</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/thelastofus.jpg">
+        <div class="series-info">
+            <h3>The Last of Us</h3>
+            <p>IMDb 8.8 • Action</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/peakyblinders.jpg">
+        <div class="series-info">
+            <h3>Peaky Blinders</h3>
+            <p>IMDb 8.8 • Crime</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/bettercallsaul.jpg">
+        <div class="series-info">
+            <h3>Better Call Saul</h3>
+            <p>IMDb 9.0 • Drama</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/theboys.jpg">
+        <div class="series-info">
+            <h3>The Boys</h3>
+            <p>IMDb 8.7 • Sci-Fi</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/truedetective.jpg">
+        <div class="series-info">
+            <h3>True Detective</h3>
+            <p>IMDb 8.9 • Crime</p>
+        </div>
     </div>
-  </div>
 
-  <div class="series-card">
-    <img src="images/dark.jpg">
-    <div class="series-info">
-      <h3>Dark</h3>
-      <p>IMDb 8.8 • Sci-Fi</p>
+    <div class="series-card">
+        <img src="images/mindhunter.jpg">
+        <div class="series-info">
+            <h3>Mindhunter</h3>
+            <p>IMDb 8.6 • Thriller</p>
+        </div>
     </div>
-  </div>
 
 </section>
 
+<script src="script.js"></script>
 </body>
 </html>
