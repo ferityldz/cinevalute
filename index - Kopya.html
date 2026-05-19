@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CinePru</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="header">
+  <h1>CinePru</h1>
+
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="movies.html">Movies</a>
+    <a href="series.html">Series</a>
+    <a href="favorites.html">Favorites</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-text">
+      <p class="tag">NOW WATCH</p>
+
+      <h1>Spider-Man: Across the Spider-Verse</h1>
+
+      <div class="meta">
+        <span>2023</span>
+        <span>2h 20m</span>
+        <span>Animation</span>
+        <span>⭐ 8.5</span>
+      </div>
+
+      <p class="desc">
+        A hero who has to make difficult decisions.
+      </p>
+
+      <!-- SADECE BURAYI DEĞİŞTİRDİK -->
+      <button class="play-btn" onclick="playMovie('spiderverse')">
+  ▶ PLAY
+</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/spider-man-across-the-spider-verse_tsm61wbo.webp">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MOVIES -->
+<section class="movies-section">
+  <h2>Trending Movies</h2>
+
+  <div class="slider-wrapper">
+
+    <button class="arrow left" onclick="scrollLeftMovies()">❮</button>
+
+    <div class="movie-container" id="movieContainer">
+
+      <div class="movie-card" onclick="openMovie('interstellar')">
+        <img src="images/interstellar.jpg">
+        <div class="info">
+          <h3>Interstellar</h3>
+          <p>IMDb 8.7</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('batman')">
+        <img src="images/thebatman.jpg">
+        <div class="info">
+          <h3>The Batman</h3>
+          <p>IMDb 9.0</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('got')">
+        <img src="images/gameofthrones.jpg">
+        <div class="info">
+          <h3>Game of Thrones</h3>
+          <p>IMDb 9.5</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('arog')">
+        <img src="images/arog.jpg">
+        <div class="info">
+          <h3>A.R.O.G</h3>
+          <p>IMDb 9.7</p>
+        </div>
+      </div>
+
+     <div class="movie-card" onclick="openMovie('yanyana')">
+        <img src="images/yanyana.jpg">
+        <div class="info">
+          <h3>Yan Yana</h3>
+          <p>IMDb 8.6</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('avengersinfinitywar')">
+        <img src="images/avengersinfinitywar.jpg">
+        <div class="info">
+          <h3>Avengers Infinity War</h3>
+          <p>IMDb 9.2</p>
+        </div>
+      </div>
+
+     <div class="movie-card" onclick="openMovie('friendswithbenefits')">
+        <img src="images/friendswithbenefits.jpg">
+        <div class="info">
+          <h3>Friends With Benefits</h3>
+          <p>IMDb 7.8</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('theamazingspiderman')">
+        <img src="images/theamazingspiderman.jpg">
+        <div class="info">
+          <h3>The Amazing Spider-Man</h3>
+          <p>IMDb 7.0</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('kizginadam')">
+        <img src="images/12-kizgin-adam-1660915309_225x336.jpg">
+        <div class="info">
+          <h3>12 Angry Man</h3>
+          <p>IMDb 8.8</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('thegodfather')">
+        <img src="images/baba-1660915256_225x336.jpg">
+        <div class="info">
+          <h3>Baba</h3>
+          <p>IMDb 9.8</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('Inception')">
+        <img src="images/baslangic-1660924244_225x336.jpg">
+        <div class="info">
+          <h3>Inception</h3>
+          <p>IMDb 9.1</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('esaretinbedeli')">
+        <img src="images/esaretinbedeli.jpg">
+        <div class="info">
+          <h3>Esaretin Bedeli</h3>
+          <p>IMDb 9.5</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('friendswithbenefits')">
+        <img src="images/friendswithbenefits.jpg">
+        <div class="info">
+          <h3>Friends With Benefits</h3>
+          <p>IMDb 7.8</p>
+        </div>
+      </div>
+
+      <div class="movie-card" onclick="openMovie('hababamsinifi')">
+        <img src="images/Hababam-Sinifi-1290714534_225x336.jpg">
+        <div class="info">
+          <h3>Hababam Sınıfı</h3>
+          <p>IMDb 8.4</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow right" onclick="scrollRightMovies()">❯</button>
+
+  </div>
+</section>
+
+<!-- 🔥(SLIDE PANEL) -->
+<div class="movie-panel" id="moviePanel">
+
+  <div class="panel-content">
+
+    <button class="close-btn" onclick="closePanel()">✖</button>
+
+    <img id="panelImg">
+
+    <h2 id="panelTitle"></h2>
+
+    <div class="meta" id="panelMeta"></div>
+
+    <p id="panelDesc"></p>
+
+    <button class="play-btn" id="watchBtn">
+  ▶ Watch Now
+</button>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

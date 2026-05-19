@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzleme Geçmişi | CinePru</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Navbar ve Profil Menüsü CSS Ayarları */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #0f0f0f;
+            position: relative;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .profile-trigger:hover {
+            color: red;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #141414;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 100;
+            border-radius: 4px;
+            border: 1px solid #222;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: #ffffff !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: red;
+            color: #fff !important;
+        }
+
+        .profile-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Geçmiş Kart Tasarımları */
+        .history-card {
+            background-color: #181818;
+            border: 1px solid #252525;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .history-img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        /* Temizleme Butonu */
+        .clear-btn {
+            background: transparent;
+            color: #ff3333;
+            border: 1px solid #ff3333;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .clear-btn:hover {
+            background: #ff3333;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .header { flex-direction: column; padding: 15px; text-align: center; gap: 15px; }
+            .nav-container { flex-direction: column; gap: 15px; width: 100%; }
+            .top-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
+            .profile-dropdown { width: 100%; text-align: center; }
+            .profile-trigger { justify-content: center; }
+            .dropdown-menu { position: static; width: 100%; box-shadow: none; background-color: #1a1a1a; border: none; margin-top: 5px; }
+        }
+
+        /* Film Kartları ve Detay Panelindeki Meta Yazılarını Belirginleştirme */
+.movie-card .info p,
+.movie-info p,
+.meta,
+#panelMeta {
+    color: #e0e0e0 !important; /* Arka planla çakışmayan, parlak ve net bir gri/beyaz tonu */
+    font-weight: 500; /* Yazıları hafifçe kalınlaştırarak okunabilirliği artırır */
+}
+    </style>
+</head>
+<body class="bg-dark text-light">
+
+    <header class="header">
+        <h1>CinePru</h1>
+        <div class="nav-container">
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="series.html">Series</a>
+            </nav>
+
+            <div class="profile-dropdown">
+                <div class="profile-trigger">Profilim ▼</div>
+                <div class="dropdown-menu">
+                    <a href="profile.html">Profilim</a>
+                    <a href="favorites.html">Favorites ❤️</a>
+                    <a href="settings.html">Ayarlar</a>
+                    <a href="history.html">Geçmiş</a>
+                    <a href="#" onclick="logoutUser()" style="border-top: 1px solid #222; color: #ff3333;">Çıkış Yap 🚪</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold text-gold"><i class="fas fa-history me-2"></i> İzleme Geçmişiniz</h2>
+            <button class="clear-btn" onclick="clearHistory()"><i class="fas fa-trash-alt me-1"></i> Geçmişi Temizle</button>
+        </div>
+
+        <div id="historyGrid" class="row row-cols-1 row-cols-md-2 g-4">
+            </div>
+
+        <div id="emptyMessage" class="text-center py-5" style="display: none;">
+            <i class="fas fa-film fa-3x text-muted mb-3"></i>
+            <p class="text-muted fs-5">Henüz hiçbir film incelemediniz.</p>
+            <a href="movies.html" class="btn btn-danger mt-2">Hemen Keşfet</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            renderHistory();
+        });
+
+        function renderHistory() {
+            // Hafızadan tıklanan filmleri dizi olarak çekiyoruz
+            let historyLog = JSON.parse(localStorage.getItem("watchHistory")) || [];
+            const historyGrid = document.getElementById("historyGrid");
+            const emptyMessage = document.getElementById("emptyMessage");
+
+            historyGrid.innerHTML = "";
+
+            if (historyLog.length === 0) {
+                emptyMessage.style.display = "block";
+                return;
+            }
+
+            emptyMessage.style.display = "none";
+
+            // En son izlenenden ilk izlenene doğru sıralı göstermek için ters çeviriyoruz
+            historyLog.reverse().forEach(item => {
+                const cardCol = document.createElement("div");
+                cardCol.className = "col";
+                
+                cardCol.innerHTML = `
+                    <div class="d-flex history-card align-items-center">
+                        <img src="${item.img}" class="history-img" alt="${item.title}">
+                        <div class="p-3">
+                            <h5 class="fw-bold text-white mb-1">${item.title}</h5>
+                            <p class="small mb-2" style="color: #cccccc !important;">${item.meta}</p>
+                            <span class="badge bg-secondary small text-light"><i class="far fa-clock me-1"></i> ${item.date}</span>
+                        </div>
+                    </div>
+                `;
+                historyGrid.appendChild(cardCol);
+            });
+        }
+
+        // Geçmişi sıfırlama fonksiyonu
+        function clearHistory() {
+            if (confirm("Tüm izleme geçmişinizi silmek istediğinize emin misiniz?")) {
+                localStorage.removeItem("watchHistory");
+                renderHistory();
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

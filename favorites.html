@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites | CinePru</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+      /* ==========================================
+         DİĞER SAYFALARLA AYNI PROFİL MENÜSÜ CSS AYARLARI
+         ========================================== */
+      .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 40px;
+          background-color: #0f0f0f;
+          position: relative;
+      }
+
+      .nav-container {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+      }
+
+      .profile-dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .profile-trigger {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #fff;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 8px 12px;
+          cursor: pointer;
+          transition: color 0.3s ease;
+      }
+
+      .profile-trigger:hover {
+          color: red;
+      }
+
+      .dropdown-menu {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 100%;
+          background-color: #141414;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+          z-index: 100;
+          border-radius: 4px;
+          border: 1px solid #222;
+          overflow: hidden;
+      }
+
+      .dropdown-menu a {
+          color: #ffffff !important; /* Yazıların rengi tam beyaz */
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          font-size: 14px;
+          transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .dropdown-menu a:hover {
+          background-color: red;
+          color: #fff !important;
+      }
+
+      .profile-dropdown:hover .dropdown-menu {
+          display: block;
+      }
+
+      /* Mobilde Navbar Düzeni Ayarı */
+      @media (max-width: 768px) {
+          .header {
+              flex-direction: column;
+              padding: 15px;
+              text-align: center;
+              gap: 15px;
+          }
+
+          .nav-container {
+              flex-direction: column;
+              gap: 15px;
+              width: 100%;
+          }
+
+          .top-nav {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 15px;
+              width: 100%;
+          }
+
+          .top-nav a {
+              font-size: 14px;
+              padding: 5px 10px;
+          }
+
+          .profile-dropdown {
+              width: 100%;
+              text-align: center;
+          }
+
+          .profile-trigger {
+              justify-content: center;
+          }
+
+          .dropdown-menu {
+              position: static;
+              width: 100%;
+              box-shadow: none;
+              background-color: #1a1a1a;
+              border: none;
+              margin-top: 5px;
+          }
+      }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <h1>CinePru</h1>
+
+  <div class="nav-container">
+      <nav class="top-nav">
+          <a href="index.html">Home</a>
+          <a href="movies.html">Movies</a>
+          <a href="series.html">Series</a>
+      </nav>
+
+      <div class="profile-dropdown">
+          <div class="profile-trigger">Profilim ▼</div>
+          <div class="dropdown-menu">
+              <a href="profile.html">Profilim</a>
+              <a href="favorites.html">Favorites ❤️</a>
+              <a href="settings.html">Ayarlar</a>
+              <a href="history.html">Geçmiş</a>
+              <a href="#" onclick="logoutUser()" style="border-top: 1px solid #222; color: #ff3333;">Çıkış Yap 🚪</a>
+          </div>
+      </div>
+  </div>
+</header>
+
+<section class="fav-header">
+  <h2>⭐ My Favorites</h2>
+  <p>Saved movies & series you love</p>
+</section>
+
+<section class="fav-grid">
+
+  <div class="fav-card">
+    <img src="images/interstellar.jpg">
+    <div class="fav-info">
+      <h3>Interstellar</h3>
+      <p>IMDb 8.7</p>
+    </div>
+  </div>
+
+  <div class="fav-card">
+    <img src="images/thebatman.jpg">
+    <div class="fav-info">
+      <h3>The Batman</h3>
+      <p>IMDb 9.0</p>
+    </div>
+  </div>
+
+  <div class="fav-card">
+    <img src="images/gameofthrones.jpg">
+    <div class="fav-info">
+      <h3>Game of Thrones</h3>
+      <p>IMDb 9.5</p>
+    </div>
+  </div>
+
+  <div class="fav-card">
+    <img src="images/avengersinfinitywar.jpg">
+    <div class="fav-info">
+      <h3>Avengers IW</h3>
+      <p>IMDb 8.7</p>
+    </div>
+  </div>
+
+  <div class="fav-card">
+    <img src="images/gameofthrones.jpg">
+    <div class="fav-info">
+      <h3>Game of Thrones</h3>
+      <p>IMDb 9.5</p>
+    </div>
+  </div>
+  
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

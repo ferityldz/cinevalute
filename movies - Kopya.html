@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies | CinePru</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Video Ön İzleme Konteynırı */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 260px; /* CSS'indeki .movie-card img boyutuyla aynı */
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .preview-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .movie-card:hover .poster { opacity: 0; }
+        .movie-card:hover .preview-video { opacity: 1; }
+
+        /* ==========================================
+   CINEPRU MOBİL UYUM (RESPONSIVE) AYARLARI
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Header ve Navigasyon Menüsü */
+    .header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .top-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .top-nav a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    /* 2. Sayfa Başlığı Alanı */
+    .movies-header {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .movies-header h2 {
+        font-size: 24px;
+    }
+
+    /* 3. Film Grid Yapısı (Mobilde 4 sütundan 1 veya 2 sütuna düşürüyoruz) */
+    .movies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    /* 4. Film Kartları ve Video Yüksekliği */
+    .video-container {
+        height: 220px; /* Küçük ekranlarda kartların çok uzamaması için */
+    }
+
+    .movie-info h3 {
+        font-size: 15px;
+    }
+
+    .movie-info p {
+        font-size: 12px;
+    }
+
+    /* 5. QUIZ PANELİ MOBİL AYARI */
+    /* Panel mobilde ekranın %45'i yerine tamamını (%100) kaplamalı */
+    .movie-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        border-right: none !important;
+        border-bottom: 4px solid red; /* Üst veya alt çizgi estetiği */
+        overflow-y: auto; /* Sorular taşarsa aşağı kaydırılabilmesi için */
+    }
+
+    .panel-content {
+        padding: 20px 15px !important;
+    }
+
+    #quizTitle {
+        font-size: 22px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #questionText {
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Şıkların (Butonların) mobilde daha rahat tıklanması için parmak dostu boyut */
+    #optionsContainer button {
+        padding: 14px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Çok küçük ekranlar için ekstra rötuş (Örn: iPhone SE) */
+@media (max-width: 480px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr); /* Yan yana tam 2 kart sığdırır */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .video-container {
+        height: 190px;
+    }
+    
+    .play-btn {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>CinePru</h1>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="series.html">Series</a>
+        <a href="favorites.html">Favorites</a>
+    </nav>
+</header>
+
+<section class="movies-header">
+    <h2>🎬 All Movies</h2>
+    <p>Discover trending movies & classics</p>
+</section>
+
+<section class="movies-grid">
+
+    <!-- 1. Interstellar -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/interstellar.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/Interstellar - Trailer - Official Warner Bros. UK.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Interstellar</h3>
+            <p>IMDb 8.7 • Sci-Fi</p>
+            <button class="play-btn" onclick="startQuiz('interstellar')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 2. The Batman -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/thebatman.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/thebatman-videoplayback.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>The Batman</h3>
+            <p>IMDb 9.0 • Action</p>
+            <button class="play-btn" onclick="startQuiz('thebatman')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 3. Avengers IW -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/avengersinfinitywar.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/avengers-iw.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Avengers IW</h3>
+            <p>IMDb 8.7 • Action</p>
+            <button class="play-btn" onclick="startQuiz('avengersiw')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 4. A.R.O.G -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/arog.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/arog-film.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>A.R.O.G</h3>
+            <p>IMDb 9.7 • Comedy</p>
+            <button class="play-btn" onclick="startQuiz('arog')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 5. Yanyana -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/yanyana.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/yanyana.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Yanyana</h3>
+            <p>IMDb 10 • Drama</p>
+            <button class="play-btn" onclick="startQuiz('yanyana')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 6. The Amazing Spider-Man -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/theamazingspiderman.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/theamazıngspıderman.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>The Amazing Spider-Man</h3>
+            <p>IMDb 7.0 • Action</p>
+            <button class="play-btn" onclick="startQuiz('theamazingspiderman')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 7. Game of Thrones -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/gameofthrones.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/gameofthrones.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Game of Thrones</h3>
+            <p>IMDb 9.5 • Fantasy</p>
+            <button class="play-btn" onclick="startQuiz('gameofthrones')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 8. 12 Angry Men -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/12-kizgin-adam-1660915309_225x336.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/12angryman.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>12 Angry Men</h3>
+            <p>IMDb 8.8 • Drama</p>
+            <button class="play-btn" onclick="startQuiz('12angryman')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 9. The Godfather -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/baba-1660915256_225x336.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/thegodfather.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>The Godfather</h3>
+            <p>IMDb 9.8 • Crime</p>
+            <button class="play-btn" onclick="startQuiz('thegodfather')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 10. Inception -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/baslangic-1660924244_225x336.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/incepiton.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Inception</h3>
+            <p>IMDb 8.8 • Sci-Fi</p>
+            <button class="play-btn"onclick="startQuiz('inception')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 11. Esaretin Bedeli -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/esaretinbedeli.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/esaretinbedeli.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Esaretin Bedeli</h3>
+            <p>IMDb 9.3 • Drama</p>
+            <button class="play-btn" onclick="startQuiz('esaretinbedeli')">Quizi Başlat</button>
+        </div>
+    </div>
+
+    <!-- 12. Hababam Sınıfı -->
+    <div class="movie-card">
+        <div class="video-container">
+            <img src="images/Hababam-Sinifi-1290714534_225x336.jpg" class="poster">
+            <video class="preview-video" muted loop playsinline>
+                <source src="videos/habababamsınıfı.mp4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="movie-info">
+            <h3>Hababam Sınıfı</h3>
+            <p>IMDb 9.2 • Comedy</p>
+            <button class="play-btn" onclick="startQuiz('hababamsinifi')">Quizi Başlat</button>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    document.querySelectorAll('.movie-card').forEach(card => {
+        const video = card.querySelector('.preview-video');
+        card.addEventListener('mouseenter', () => { if(video) video.play(); });
+        card.addEventListener('mouseleave', () => { 
+            if(video) { video.pause(); video.currentTime = 0; }
+        });
+    });
+</script>
+
+
+<div id="quizModal" class="movie-panel">
+        <button class="close-btn" onclick="closeQuiz()">&times;</button>
+        
+        <div class="panel-content" style="padding: 30px; clear: both;">
+            <h2 id="quizTitle" style="color: red; margin-bottom: 25px; font-size: 28px; letter-spacing: 1px;">Film Quizi</h2>
+            
+            <div id="questionContainer">
+                <h3 id="questionText" style="font-size: 18px; margin-bottom: 25px; color: #fff; line-height: 1.4;">Soru yükleniyor...</h3>
+                <div id="optionsContainer" style="display: flex; flex-direction: column; gap: 15px;">
+                    </div>
+            </div>
+
+            <div id="resultContainer" style="display: none; text-align: center; margin-top: 50px;">
+                <h3 style="font-size: 26px; color: #2ecc71; font-weight: bold;">Tebrikler! Quiz Bitti.</h3>
+                <p id="quizScore" style="font-size: 20px; margin: 20px 0; color: #ccc;">Skorun: 0 / 0</p>
+                <button class="play-btn" onclick="closeQuiz()" style="padding: 10px 25px; background: red; color: white; border: none; border-radius: 5px; cursor: pointer;">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
