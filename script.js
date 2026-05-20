@@ -283,149 +283,157 @@ function login() {
 // SORU VERİTABANI
 const quizData = {
     interstellar: [
-        { q: "Astronotların uzayda kestirme gitmek için kullandıkları bükülmeye ne denir?", a: ["Kara Delik", "Solucan Deliği", "Olay Ufku", "Tekillik"], correct: 1 },
-        { q: "Cooper'ın robot yardımcısının adı nedir?", a: ["TARS", "HAL 9000", "R2-D2", "JARVIS"], correct: 0 },
-        { q: "Cooper ve ekibinin indiği ilk gezegende (Miller'ın Gezegeni) devasa boyutta olan tehlike nedir?", a: ["Kum Fırtınaları", "Asit Yağmurları", "Devasa Dalgalar", "Aktif Volkanlar"], correct: 2 },
-        { q: "Miller'ın gezegenindeki 1 saat, Dünya'da yaklaşık kaç yıla denk gelmektedir?", a: ["1 Yıl", "5 Yıl", "7 Yıl", "10 Yıl"], correct: 2 },
-        { q: "Cooper uzaya gitmeden önce Dünya'da asıl olarak hangi mesleği yapıyordu?", a: ["Mühendis / Çiftçi", "Askeri Pilot", "Fizik Profesörü", "Jeolog"], correct: 0 },
-        { q: "Cooper'ın kızının adı nedir ve babasının odasındaki kütüphanede bulduğu hayali varlığa ne ad vermiştir?", a: ["Brand / Canavar", "Murph / Hayalet", "Lois / Ruh", "Sarah / Uzaylı"], correct: 1 },
-        { q: "Filmin sonunda Cooper, kara deliğin içindeki 5 boyutlu hangi mekanda kızına veri göndermeye çalışır?", a: ["Tesseract (Kütüphane arkası)", "Solucan deliği merkezi", "Gargantua yüzeyi", "Hiçlik"], correct: 0 },
-        { q: "Cooper'ın kara deliğin içinden kızına yer çekimi verilerini aktarmak için kullandığı nesne hangisidir?", a: ["Duvar Saati", "Kol Saati", "Eski Bir Kitap", "Dolma Kalem"], correct: 1 },
-        { q: "Ekibin uzayda seyahat ettiği ana geminin adı aşağıdakilerden hangisidir?", a: ["Endurance", "Ranger", "Lander", "Ares"], correct: 0 },
-        { q: "Dünya'yı terk eden insanlığın sığındığı devasa uzay istasyonuna kimin adı verilmiştir?", a: ["Profesör Brand", "Cooper", "Murphy (Murph)", "NASA"], correct: 2 }
+       { q: "What is the shortcut distortion used by astronauts to travel faster in space called?", a: ["Black Hole", "Wormhole", "Event Horizon", "Singularity"], correct: 1 },
+       { q: "What is the name of Cooper's robot companion?", a: ["TARS", "HAL 9000", "R2-D2", "JARVIS"], correct: 0 },
+       { q: "What is the massive danger on the first planet the team lands on (Miller's Planet)?", a: ["Sandstorms", "Acid Rains", "Giant Waves", "Active Volcanoes"], correct: 2 },
+       { q: "Approximately how many years on Earth equal one hour on Miller's Planet?", a: ["1 Year", "5 Years", "7 Years", "10 Years"], correct: 2 },
+       { q: "What was Cooper's main job on Earth before going to space?", a: ["Engineer / Farmer", "Military Pilot", "Physics Professor", "Geologist"], correct: 0 },
+    { q: "What is the name of Cooper's daughter, and what did she call the invisible presence in her room?", a: ["Brand / Monster", "Murph / Ghost", "Lois / Spirit", "Sarah / Alien"], correct: 1 },
+{ q: "In what 5-dimensional structure does Cooper try to send data to his daughter at the end of the film?", a: ["Tesseract (Behind the bookshelf)", "Wormhole center", "Gargantua surface", "Nothingness"], correct: 0 },
+{ q: "Which object does Cooper use to transmit gravity data to his daughter from inside the black hole?", a: ["Wall Clock", "Wristwatch", "Old Book", "Fountain Pen"], correct: 1 },
+{ q: "What is the name of the main spacecraft used by the team for space travel?", a: ["Endurance", "Ranger", "Lander", "Ares"], correct: 0 },
+{ q: "The massive space station where humanity relocates is named after whom?", a: ["Professor Brand", "Cooper", "Murphy (Murph)", "NASA"], correct: 2 }
     ],
     thebatman: [
-        { q: "Robert Pattinson'ın canlandırdığı Batman, filmde kendine hangi unvanı verir?", a: ["Karanlık Şövalye", "Adalet", "İntikam", "Dedektif"], correct: 2 },
-        { q: "Filmin ana kötü karakteri (Riddler) suç mahalline ne bırakır?", a: ["Oyun Kartı", "Bulmaca/Zarf", "Siyah Gül", "Para"], correct: 1 },
-        { q: "Batman'e soruşturmada yardım eden ve daha sonra Komiser olacak olan polis ortağı kimdir?", a: ["Harvey Dent", "James Gordon", "Harvey Bullock", "John Blake"], correct: 1 },
-        { q: "Riddler'ın Gotham sokaklarında ilk olarak katlettiği üst düzey yetkili kimdir?", a: ["Polis Şefi", "Belediye Başkanı", "Bölge Savcısı", "Bruce Wayne"], correct: 1 },
-        { q: "Zoe Kravitz tarafından canlandırılan, kulüplerde çalışan ve Batman ile iş birliği yapan karakter kimdir?", a: ["Catwoman (Selina Kyle)", "Poison Ivy", "Harley Quinn", "Barbara Gordon"], correct: 0 },
-        { q: "Gotham'ın yeraltı dünyasını yöneten, Colin Farrell'ın tanınmayacak bir makyajla oynadığı mafya lideri kimdir?", a: ["Carmine Falcone", "Penguen (Oswald Cobblepot)", "Two-Face", "Sal Maroni"], correct: 1 },
-        { q: "Wayne malikanesinde Bruce'a sadık olan, Riddler'ın gönderdiği bombalı mektupla yaralanan uşak kimdir?", a: ["Lucius Fox", "Alfred Pennyworth", "Jarvis", "Gordon"], correct: 1 },
-        { q: "Riddler'ın film boyunca asıl amacı Gotham şehrindeki hangi durumu ortaya çıkarmaktır?", a: ["Yoksulluğu", "Köklü yolsuzluk ve yalanları", "Uyuşturucu ticaretini", "Akıl hastanesindeki kaçakları"], correct: 1 },
-        { q: "Filmin finalinde Riddler'ın planı doğrultusunda Gotham şehrine ne olur?", a: ["Büyük bir yangın çıkar", "Şehir sular altında kalır (Barajlar patlar)", "Zehirli gaz salınır", "Elektrikler tamamen kesilir"], correct: 1 },
-        { q: "Riddler yakalandıktan sonra kapatıldığı Arkham Akıl Hastanesi'nde hücre komşusu olarak kiminle tanışır?", a: ["Joker", "Bane", "Scarecrow", "Lex Luthor"], correct: 0 }
+        { q: "What title does Robert Pattinson’s Batman give himself in the film?", a: ["The Dark Knight", "Justice", "Vengeance", "Detective"], correct: 2 },
+{ q: "What does the main villain (Riddler) leave at crime scenes?", a: ["Playing Card", "Puzzle/Envelope", "Black Rose", "Money"], correct: 1 },
+{ q: "Who is Batman’s police partner who helps in the investigation and later becomes Commissioner?", a: ["Harvey Dent", "James Gordon", "Harvey Bullock", "John Blake"], correct: 1 },
+{ q: "Who is the first high-ranking official killed by the Riddler in Gotham?", a: ["Police Chief", "Mayor", "District Attorney", "Bruce Wayne"], correct: 1 },
+{ q: "Who is the character played by Zoë Kravitz, who works in clubs and teams up with Batman?", a: ["Catwoman (Selina Kyle)", "Poison Ivy", "Harley Quinn", "Barbara Gordon"], correct: 0 },
+{ q: "Who is the crime boss controlling Gotham’s underworld, played by Colin Farrell under heavy makeup?", a: ["Carmine Falcone", "Penguin (Oswald Cobblepot)", "Two-Face", "Sal Maroni"], correct: 1 },
+{ q: "Who is Bruce Wayne’s loyal butler, injured by a bomb sent by the Riddler at Wayne Manor?", a: ["Lucius Fox", "Alfred Pennyworth", "Jarvis", "Gordon"], correct: 1 },
+{ q: "What is the Riddler’s main goal throughout the film regarding Gotham City?", a: ["Poverty", "Exposing deep corruption and lies", "Drug trafficking", "Escaped asylum inmates"], correct: 1 },
+{ q: "What happens to Gotham City in the final part of the Riddler’s plan?", a: ["A massive fire breaks out", "The city is flooded (dams collapse)", "A toxic gas is released", "A total power outage"], correct: 1 },
+{ q: "After being captured, who does the Riddler meet as his cell neighbor in Arkham Asylum?", a: ["Joker", "Bane", "Scarecrow", "Lex Luthor"], correct: 0 }
     ],
-    inception: [
-        { q: "Karakterlerin rüyada olup olmadıklarını anlamak için kullandıkları objeye ne denir?", a: ["Muska", "Çıpa", "Totem", "Anahtar"], correct: 2 },
-        { q: "Leonardo DiCaprio'nın canlandırdığı başkarakter Dom Cobb'un kişisel totemi nedir?", a: ["Satranç Taşı", "Metal Topaç (Fırıldak)", "Hileli Zar", "Eski Bir Madeni Para"], correct: 1 },
-        { q: "Filme adını veren 'Inception' (Başlangıç) kelimesinin operasyondaki asıl anlamı nedir?", a: ["Birinin rüyasını çalmak", "Birinin zihnine yeni bir fikir ekmek", "Rüyadan uyanmak", "Aynı anda iki rüya görmek"], correct: 1 },
-        { q: "Rüya evrenlerini tasarlayan, Elliot Page'in canlandırdığı genç mimar karakter kimdir?", a: ["Arthur", "Ariadne", "Eames", "Saito"], correct: 1 },
-        { q: "Cobb'un rüyalarını sabote eden, sürekli karşısına çıkan ölmüş eşinin adı nedir?", a: ["Mal", "Saito", "Yusuf", "Robert"], correct: 0 },
-        { q: "Ekibin rüyada çok daha derin katmanlara inebilmek için kimyager Yusuf'tan aldıkları şey nedir?", a: ["Özel bir maske", "Çok güçlü bir sakinleştirici/ilaç", "Zihin okuma cihazı", "Adrenalin iğnesi"], correct: 1 },
-        { q: "Rüyadan uyanmayı sağlayan, o meşhur düşme hissine veya şoka ne ad verilir?", a: ["The Kick (Tekme)", "The Wake (Uyanış)", "The Limbo", "The Paradox"], correct: 0 },
-        { q: "Zihnine fikir ekilmeye çalışılan, devasa bir şirketin mirasçısı olan hedef karakter kimdir?", a: ["Robert Fischer", "Saito", "Arthur", "Eames"], correct: 0 },
-        { q: "Rüya içinde ölündüğünde ya da çok ağır sakinleştirici altındayken düşülen, zamanın durma noktasına geldiği rüya altı boşluğa ne denir?", a: ["Limbo", "Paradoks", "Labirent", "Koma"], correct: 0 },
-        { q: "Ekibin rüyadayken uyanma zamanının geldiğini anlamak için arka planda çaldıkları ikonik şarkı kime aittir?", a: ["Edith Piaf (Non, je ne regrette rien)", "Hans Zimmer", "Mozart", "Frank Sinatra"], correct: 0 }
-    ],
-    avengersiw: [
-        { q: "Thanos, evrenin yarısını yok etmek için toplam kaç sonsuzluk taşı toplamıştır?", a: ["4", "5", "6", "7"], correct: 2 },
-        { q: "Thanos, Ruh Taşı'nı (Soul Stone) almak için hangi gezegene gider?", a: ["Vormir", "Titan", "Zendalar", "Asgard"], correct: 0 },
-        { q: "Thor'un Thanos'u öldürmek için cüce Eitri'ye yaptırdığı yeni silahın adı nedir?", a: ["Mjolnir", "Stormbreaker", "Gungnir", "Nightmaul"], correct: 1 },
-        { q: "Ruh Taşı'nın koruyuculuğunu (Sonsuzluk nöbetini) hangi eski Marvel karakteri yapmaktadır?", a: ["Loki", "Red Skull", "Odin", "The Collector"], correct: 1 },
-        { q: "Doctor Strange, Thanos'a karşı kazanabilecekleri kaç ihtimal olduğunu söyler?", a: ["14.000.605", "1.000.000", "500.200", "14.000"], correct: 0 },
-        { q: "Thanos'un Wakanda'da Vision'ın kafasından sökerek aldığı son taş hangisidir?", a: ["Zaman Taşı", "Zihin Taşı", "Güç Taşı", "Gerçeklik Taşı"], correct: 1 },
-        { q: "Kaptan Amerika ve ekibi, Vision'ı korumak ve taşı güvenle sökmek için hangi ülkeye gider?", a: ["Sokovia", "Wakanda", "Asgard", "Kamar-Taj"], correct: 1 },
-        { q: "Zaman Taşı'nı koruyan Doctor Strange, taşı Thanos'a kimin hayatını kurtarmak için verir?", a: ["Iron Man (Tony Stark)", "Spider-Man", "Star-Lord", "Wong"], correct: 0 },
-        { q: "Filmin ikonik başlangıç sahnesinde Thanos tarafından öldürülen Thor'un kardeşi kimdir?", a: ["Hela", "Loki", "Heimdall", "Balder"], correct: 1 },
-        { q: "Filmin sonunda evrenin yarısı yok olurken toz bulutuna dönüşen ilk kahraman kimdir?", a: ["Black Panther", "Bucky Barnes", "Spider-Man", "Groot"], correct: 1 }
-    ],
-    arog: [
-        { q: "Arif'in yontma taş devrinde kurduğu futbol takımının adı nedir?", a: ["Yaba Spora", "Gora Gücü", "Taş Çağı İdman Yurdu", "Arog United"], correct: 0 },
-        { q: "Arif'i zaman makinesiyle yontma taş devrine ışınlayan G.O.R.A'lı düşmanı kimdir?", a: ["Kuna", "Logar", "Toku", "Garavel"], correct: 1 },
-        { q: "Arif'in taş devrinde dost olduğu, sürekli 'Arog' diye bağıran kabilenin lideri kimdir?", a: ["Kuyu", "Kağan", "Ceku", "Aziz Arif"], correct: 0 },
-        { q: "Arif, taş devri insanlarına çamurdan ne üreterek medeniyeti hızlandırmaya çalışır?", a: ["Tekerlek", "Kiremit/Tuğla", "Çömlek", "Para"], correct: 1 },
-        { q: "A.R.O.G filminde maymunlar tarafından yetiştirilen ve Arif'e yardım eden karakter kimdir?", a: ["Dimi", "Mimi", "Kiki", "Timi"], correct: 0 },
-        { q: "Arif'in rakip kabile Aroganlar ile yaptığı futbol maçını yöneten hakem kimdir?", a: ["Garavel", "Logar", "Kuna", "Toku"], correct: 3 },
-        { q: "Futbol maçında galibiyeti getiren golü Arif hangi efsane vuruş tarzıyla atar?", a: ["Rövaşata", "Volan vuruşu", "Akrep vuruşu", "Dokuz canlı şut"], correct: 0 },
-        { q: "Arif, Taş Devri kadınlarına temizlik yapmaları için neyi icat ettirir?", a: ["Çamaşır Suyu", "Bulaşık Süngeri", "Merdaneli Çamaşır Makinesi", "Halı Silkeleyici"], correct: 2 },
-        { q: "Arogan kabilesinin şeytani liderinin adı nedir?", a: ["Karga", "Rıfkı", "Yakar", "Kunter"], correct: 0 },
-        { q: "Filmin sonunda Arif kendi zamanına dönmeyi başarırken yanında kimi de yanlışlıkla getirir?", a: ["Kuyu", "Dimi", "Bir Maymun", "Logar"], correct: 2 }
-    ],
+   inception: [
+    { q: "What is the object used by characters to determine whether they are in a dream?", a: ["Amulet", "Anchor", "Totem", "Key"], correct: 2 },
+    { q: "What is Dom Cobb’s personal totem in the film, played by Leonardo DiCaprio?", a: ["Chess Piece", "Spinning Top", "Loaded Dice", "Old Coin"], correct: 1 },
+    { q: "What is the real meaning of 'Inception' in the mission?", a: ["Stealing someone's dream", "Planting an idea into someone's mind", "Waking up from a dream", "Dreaming on multiple levels"], correct: 1 },
+    { q: "Which young architect character designs dream worlds, played by Elliot Page?", a: ["Arthur", "Ariadne", "Eames", "Saito"], correct: 1 },
+    { q: "What is the name of Cobb’s deceased wife who sabotages his dreams?", a: ["Mal", "Saito", "Yusuf", "Robert"], correct: 0 },
+    { q: "What does Yusuf give the team to allow them to go deeper into dream layers?", a: ["Special mask", "Powerful sedative", "Mind-reading device", "Adrenaline shot"], correct: 1 },
+    { q: "What is the term for the sudden jolt or action that wakes someone from a dream?", a: ["The Kick", "The Wake", "The Limbo", "The Paradox"], correct: 0 },
+    { q: "Who is the heir of a powerful company targeted for idea implantation?", a: ["Robert Fischer", "Saito", "Arthur", "Eames"], correct: 0 },
+    { q: "What is the dream-like void where time slows to a standstill called?", a: ["Limbo", "Paradox", "Labyrinth", "Coma"], correct: 0 },
+    { q: "Which iconic song is used by the team to signal it is time to wake up?", a: ["Edith Piaf – Non, je ne regrette rien", "Hans Zimmer", "Mozart", "Frank Sinatra"], correct: 0 }
+],
+
+avengersiw: [
+    { q: "How many Infinity Stones does Thanos collect to wipe out half of the universe?", a: ["4", "5", "6", "7"], correct: 2 },
+    { q: "On which planet does Thanos obtain the Soul Stone?", a: ["Vormir", "Titan", "Zendalar", "Asgard"], correct: 0 },
+    { q: "What is the name of Thor’s new weapon forged by Eitri?", a: ["Mjolnir", "Stormbreaker", "Gungnir", "Nightmaul"], correct: 1 },
+    { q: "Who guards the Soul Stone before Thanos arrives?", a: ["Loki", "Red Skull", "Odin", "The Collector"], correct: 1 },
+    { q: "How many possible outcomes does Doctor Strange say they have against Thanos?", a: ["14,000,605", "1,000,000", "500,200", "14,000"], correct: 0 },
+    { q: "Which Infinity Stone does Thanos take from Vision in Wakanda?", a: ["Time Stone", "Mind Stone", "Power Stone", "Reality Stone"], correct: 1 },
+    { q: "Where do Captain America and his team go to protect Vision?", a: ["Sokovia", "Wakanda", "Asgard", "Kamar-Taj"], correct: 1 },
+    { q: "Why does Doctor Strange give the Time Stone to Thanos?", a: ["To save Iron Man", "To save Spider-Man", "To save Star-Lord", "To save Wong"], correct: 0 },
+    { q: "Who is killed by Thanos in the opening scene?", a: ["Hela", "Loki", "Heimdall", "Balder"], correct: 1 },
+    { q: "Who is the first hero to disintegrate into dust?", a: ["Black Panther", "Bucky Barnes", "Spider-Man", "Groot"], correct: 1 }
+],
+
+arog: [
+    { q: "What is the name of Arif’s football team in the Stone Age?", a: ["Yaba Spora", "Gora Force", "Stone Age Athletic Club", "Arog United"], correct: 0 },
+    { q: "Who sends Arif to the Stone Age with a time machine?", a: ["Kuna", "Logar", "Toku", "Garavel"], correct: 1 },
+    { q: "Who is the tribal leader Arif befriends in the Stone Age?", a: ["Kuyu", "Khan", "Ceku", "Aziz Arif"], correct: 0 },
+    { q: "What does Arif try to create from clay to advance civilization?", a: ["Wheel", "Brick", "Pottery", "Money"], correct: 1 },
+    { q: "Who is the monkey-raised ally helping Arif?", a: ["Dimi", "Mimi", "Kiki", "Timi"], correct: 0 },
+    { q: "Who referees the football match between tribes?", a: ["Garavel", "Logar", "Kuna", "Toku"], correct: 3 },
+    { q: "What legendary move does Arif use to score the winning goal?", a: ["Bicycle kick", "Volley shot", "Scorpion kick", "Nine-life shot"], correct: 0 },
+    { q: "What machine does Arif invent for cleaning in the Stone Age?", a: ["Bleach", "Sponge", "Washing machine", "Carpet shaker"], correct: 2 },
+    { q: "What is the name of the evil tribe leader?", a: ["Karga", "Rıfkı", "Yakar", "Kunter"], correct: 0 },
+    { q: "Who accidentally returns to the present with Arif?", a: ["Kuyu", "Dimi", "A monkey", "Logar"], correct: 2 }
+],
     yanyana: [
-        { q: "Yanyana projesindeki ana karakterlerin hikayesinin kesiştiği temel mekan neresidir?", a: ["Okul Kampüsü", "Mahalle Kahvesi", "Aynı Apartman", "Hastane"], correct: 2 },
-        { q: "Karakterlerin arasındaki buzların erimesini sağlayan ortak hobi/etkinlik nedir?", a: ["Müzik Grubu", "Futbol Maçı", "Yemek Yapmak", "Tiyatro Oyunu"], correct: 0 },
-        { q: "Dram türündeki bu filmde, ana karakterin sakladığı büyük sır ne üzerine kuruludur?", a: ["Maddi Borç", "Gizli Sağlık Problemi", "Yurtdışı Planı", "Kayıp Aile Üyesi"], correct: 1 },
-        { q: "Hikayenin kırılma noktasını oluşturan büyük kaza hangi mevsimde gerçekleşir?", a: ["Yaz", "Sonbahar", "Kış", "İlkbahar"], correct: 2 },
-        { q: "Filmin afişinde ve sembolünde yer alan renk teması aşağıdakilerden hangisidir?", a: ["Kırmızı-Siyah", "Mavi-Beyaz", "Sarı-Siyah", "Yeşil-Gri"], correct: 1 },
-        { q: "Karakterlerden hangisi mahallenin veya apartmanın neşe kaynağı olan bilge yaşlıyı canlandırır?", a: ["Hulusi Bey", "Ahmet Amca", "Rıza Kaptan", "Mehmet Hoca"], correct: 1 },
-        { q: "Filmin final sahnesinde tüm karakterlerin bir araya gelerek verdiği mesaj nedir?", a: ["Yalnızlık", "Birlik ve Beraberlik", "Girişimcilik", "Korku"], correct: 1 },
-        { q: "Dramatik sahnelerin birinde çalan ve filme damgasını vuran enstrüman hangisidir?", a: ["Gitar", "Piyano", "Keman", "Klarnet"], correct: 2 },
-        { q: "Başkarakterin en büyük hayali olan ama gerçekleştirmekte zorlandığı meslek nedir?", a: ["Ressamlık", "Yazarlık", "Mimarlık", "Yönetmenlik"], correct: 1 },
-        { q: "Filmin IMDb puanı kullanıcılar tarafından CinePru'da kaç olarak sembolize edilmiştir?", a: ["8.5", "9.0", "9.5", "10"], correct: 3 }
-    ],
-    theamazingspiderman: [
-        { q: "Andrew Garfield'ın canlandırdığı Peter Parker'ın lisedeki ilk büyük aşkı kimdir?", a: ["Mary Jane Watson", "Gwen Stacy", "Michelle Jones", "Felicia Hardy"], correct: 1 },
-        { q: "Peter Parker'ın babasının eski ortağı olan ve 'Kertenkele'ye (Lizard) dönüşen doktor kimdir?", a: ["Dr. Otto Octavius", "Dr. Curt Connors", "Dr. Norman Osborn", "Dr. Miles Warren"], correct: 1 },
-        { q: "Peter Parker'a güçlerini veren radyoaktif örümcek hangi şirketin laboratuvarındadır?", a: ["Oscorp", "Stark Industries", "Pym Technologies", "Roxxon"], correct: 0 },
-        { q: "Gwen Stacy'nin babasının New York şehrindeki mesleği nedir?", a: ["Belediye Başkanı", "Polis Şefi", "Gazeteci", "Bilim İnsanı"], correct: 1 },
-        { q: "Ben Amca'yı (Uncle Ben) vuran hırsızın elinde hangi ayırt edici dövme vardır?", a: ["Yıldız dövmesi", "Akrep dövmesi", "Bileğinde bir dövme", "Dövmesi yoktur"], correct: 2 },
-        { q: "Peter Parker, kostümünü tasarlarken maskesinin göz kısımları için ne kullanmıştır?", a: ["Güneş gözlüğü camı", "Kamera merceği", "Özel plastik", "Bisiklet kaskı parçası"], correct: 0 },
-        { q: "Dr. Connors'ın sürüngen DNA'sı üzerinde artwork çalışmasının asıl kişisel sebebi nedir?", a: ["Kanser tedavisi", "Eksik kolunu geri çıkartmak", "Ölümsüzlük arayışı", "Askeri silah üretmek"], correct: 1 },
-        { q: "Lizard, tüm New York halkını kertenkeleye dönüştürmek için virüsü nereden salmayı planlar?", a: ["Brooklyn Köprüsü", "Oscorp Kulesi", "Özgürlük Anıtı", "Times Square"], correct: 1 },
-        { q: "Filmin finalindeki savaşta trajik bir şekilde hayatını kaybeden karakter kimdir?", a: ["George Stacy (Polis Şefi)", "May Hala", "Dr. Connors", "Flash Thompson"], correct: 0 },
-        { q: "Peter Parker, örümcek ağlarını atmak için kostümüne ne eklemiştir?", a: ["Biyolojik ağ bezleri", "Mekanik Ağ Fırlatıcıları (Web-Shooters)", "Özel eldivenler", "Ağ tüpü"], correct: 1 }
-    ],
-    gameofthrones: [
-        { q: "Ned Stark'ın yönettiği ve kışın yaklaştığını savunan hanedanlık hangisidir?", a: ["Lannister", "Targaryen", "Stark", "Baratheon"], correct: 2 },
-        { q: "Daenerys Targaryen'in başlangıçta kaç ejderhası kuluçkadan çıkmıştır?", a: ["1", "2", "3", "4"], correct: 2 },
-        { q: "Jon Snow'un Duvar'da katıldığı, siyah pelerin giyen askeri birliğin adı nedir?", a: ["Altın Grup", "Gece Nöbeti (Night's Watch)", "İnanç Militanları", "Kral Muhafızları"], correct: 1 },
-        { q: "Joffrey Baratheon'ın kendi düğününde zehirlenerek öldüğü meşhur olaya ne ad verilir?", a: ["Kanlı Düğün", "Mor Düğün (Purple Wedding)", "Kara Düğün", "Kış Düğünü"], correct: 1 },
-        { q: "Lannister hanedanlığının arması olan ve güçlerini simgeleyen hayvan hangisidir?", a: ["Kurt", "Ejderha", "Aslan", "Geyik"], correct: 2 },
-        { q: "Duvar'ın ötesinden gelen, canavarları yöneten ve dünyayı dondurmak isteyen ana düşman kimdir?", a: ["Mance Rayder", "Night King (Gece Kralı)", "Ramsay Bolton", "Joffrey"], correct: 1 },
-        { q: "Arya Stark'ın Braavos'ta suikast eğitimi aldığı gizemli grubun adı nedir?", a: ["Yüzsüz Adamlar", "Kardeşlik", "Kuzeyin Muhafızları", "Kuzgunlar"], correct: 0 },
-        { q: "Robb Stark ve ordusunun ihanete uğrayarak katledildiği o trajik düğün hangisidir?", a: ["Mor Düğün", "Kanlı Düğün (Red Wedding)", "Kuzey Düğünü", "Gümüş Düğün"], correct: 1 },
-        { q: "Tyrion Lannister'ın en bilinen lakabı aşağıdakilerden hangisidir?", a: ["Yarım Adam / Küçük Şeytan", "Tazı", "Kral Katili", "Serçe"], correct: 0 },
-        { q: "Westeros kıtasındaki tüm hanedanlıkların ele geçirmek istediği o meşhur taht neden yapılmıştır?", a: ["Altın", "Eritilmiş Kılıçlar (Demir Taht)", "Ejderha Kemiği", "Taş ve Zümrüt"], correct: 1 }
-    ],
-    "12angryman": [
-        { q: "Filmin neredeyse tamamı hangi tek mekanda geçmektedir?", a: ["Mahkeme Salonu", "Hapishane Hücresi", "Jüri Odası", "Polis Karakolu"], correct: 2 },
-        { q: "Başlangıçta 11 jüri üyesi 'Suçlu' derken, ilk oylamada 'Suçsuz' diyen kaç numaralı jüridir?", a: ["3 Numaralı Jüri", "8 Numaralı Jüri", "1 Numaralı Jüri", "12 Numaralı Jüri"], correct: 1 },
-        { q: "Sanık koltuğundaki genç çocuk ne ile suçlanmaktadır?", a: ["Banka Soygunu", "Babasını öldürmek", "Dükkan yağmalamak", "İhanet"], correct: 1 },
-        { q: "8 Numaralı Jüri (Henry Fonda), cinayet silahı olan çakı hakkında neyi kanıtlayarak jürinin şüphe duymasını sağlar?", a: ["Bıçağın kırık olduğunu", "Aynısından kendisinde de olduğunu ve kolayca bulunabildiğini", "Bıçakta parmak izi olduğunu", "Bıçağın sanığa ait olmadığını"], correct: 1 },
-        { q: "Cinayeti gördüğünü iddia eden yaşlı adamın ifadesi neden çürütülür?", a: ["Yalan söylediği için", "Felçli olduğu için o sürede kapıya yetişmesi imkansız olduğundan", "Kör olduğu için", "O sırada uyuduğu için"], correct: 1 },
-        { q: "Karşı binada oturan kadının cinayeti yatağından gördüğü iddiası hangi detayla geçersiz kılınır?", a: ["Gözlük takıyordu ve yatarken gözlüğü yoktu", "O sırada elektrikler kesikti", "Önünden tren geçiyordu", "Kadın aslında kördü"], correct: 0 },
-        { q: "Jüri odasındaki havanın gerginliğini ve bunaltıcılığını fiziksel olarak artıran durum nedir?", a: ["Dışarıda fırtına çıkması", "Vantilatörün çalışmaması ve havanın aşırı sıcak olması", "Odanın kilitli kalması", "Işıkların bozulması"], correct: 1 },
-        { q: "Sanığa karşı kişisel öfkesi yüzünden en son ana kadar 'Suçlu' diye direten jüri üyesi kimdir?", a: ["3 Numaralı Jüri", "7 Numaralı Jüri", "10 Numaralı Jüri", "1 Numaralı Jüri"], correct: 0 },
-        { q: "Jürinin kararının mahkemede geçerli sayılması için gereken şart nedir?", a: ["Çoğunluğun kararı", "Oy birliği (12 kişinin de aynı kararda olması)", "En yaşlı jürinin kararı", "Hakimin onayı"], correct: 1 },
-        { q: "8 Numaralı Jüri üyesinin filmin sonunda odadan çıkarken öğrendiğimiz ismi nedir?", a: ["Davis", "McCardle", "Smith", "Johnson"], correct: 0 }
-    ],
-    thegodfather: [
-        { q: "Don Vito Corleone'nin düğün gününde kapısını çalan insanlara yardım etmesinin sebebi nedir?", a: ["Para kazanmak", "Sicilya geleneklerine göre hiçbir Sicilyalının düğün gününde istekleri reddedememesi", "Siyasi güç elde etmek", "Polisten kaçmak"], correct: 1 },
-        { q: "Vito Corleone'nin en büyük, asabi ve agresif olan, otobanda pusuya düşürülüp öldürülen oğlunun adı nedir?", a: ["Michael", "Fredo", "Santino (Sonny)", "Tom Hagen"], correct: 2 },
-        { q: "Film yapımcısı Jack Woltz, Corleone ailesinin isteğini reddedince sabah yatağında ne bulmuştur?", a: ["Ölü bir koruma", "Kesilmiş bir at kafası", "Kanlı bir mektup", "Dinamit"], correct: 1 },
-        { q: "Michael Corleone, babasına suikast düzenleyen Sollozzo og polis şefini nerede vurarak mafya dünyasına adım atar?", a: ["Bir kumarhanede", "İtalyan restoranında", "Kendi evinde", "Sokak ortasında"], correct: 1 },
-        { q: "Corneone ailesinin hukuki işlerine bakan, aileden sayılan evlatlık danışmanın (Consigliere) adı nedir?", a: ["Tom Hagen", "Peter Clemenza", "Salvatore Tessio", "Luca Brasi"], correct: 0 },
-        { q: "Michael Corleone cinayetlerden sonra saklanmak ve can güvenliğini korumak için nereye kaçar?", a: ["Las Vegas", "Sicilya", "Roma", "Miami"], correct: 1 },
-        { q: "Don Vito Corleone, filmin sonlarına doğru nerede kalp krizi geçirerek hayatını kaybeder?", a: ["Ofisinde çalışırken", "Domates bahçesinde torunuyla oynarken", "Restoranda yemek yerken", "Yatağında uyurken"], correct: 1 },
-        { q: "Michael Corleone, ailenin başına geçtikten sonra düşmanlarını ne zaman toplu bir suikastla temizletir?", a: ["Kardeşinin düğününde", "Yeğeninin vaftiz töreninde (Vaftiz Sahnesi)", "Yılbaşı gecesinde", "Cenaze töreninde"], correct: 1 },
-        { q: "Corleone ailesine ihanet ettiği için Michael tarafından Las Vegas'ta koruması tarafından boğdurulan enişte kimdir?", a: ["Carlo Rizzi", "Tessio", "Sollozzo", "Barzini"], correct: 0 },
-        { q: "Don Vito Corleone, filmin sonlarına doğru nerede kalp krizi geçirerek hayatını kaybeder?", a: ["Para her kapıyı açar", "Ona reddedemeyeceği bir teklif yapacağım", "Dostunu yakın tut, düşmanını daha yakın", "Adalet mahkemede değil sokaktadır"], correct: 1 }
-    ],
-    esaretinbedeli: [
-        { q: "Andy Dufresne, hangi mesleği yaptığı için hapishanede gardiyanların ve müdürün işlerine yardım etmiştir?", a: ["Avukatlık", "Bankacılık / Muhasebe", "Öğretmenlik", "Doktorluk"], correct: 1 },
-        { q: "Andy Dufresne, hangi mesleği yaptığı için hapishanede gardiyanların ve müdürün işlerine yardım etmiştir?", a: ["Red (Morgan Freeman)", "Brooks", "Tommy", "Heywood"], correct: 0 },
-        { q: "Andy Dufresne, Shawshank hapishanesinde kaç yıl esir kaldıktan sonra kaçmayı başarmıştır?", a: ["10", "15", "19", "25"], correct: 2 },
-        { q: "Andy, hücre duvarındaki tüneli kazmak için Red'den ne sipariş etmiştir?", a: ["Büyük bir kazma", "Küçük bir kaya çekici (Rock Hammer)", "Tornavida", "Demir testeresi"], correct: 1 },
-        { q: "Hapishane kütüphanesini yıllarca yöneten, şartlı tahliye olduktan sonra dış dünyaya alışamayarak intihar eden yaşlı karakter kimdir?", a: ["Brooks Hatlen", "Tommy Williams", "Captain Byron", "Samuel Norton"], correct: 0 },
-        { q: "Andy Dufresne hapishaneden kaçarken tünelden sonra nereden sürünerek özgürlüğe ulaşmıştır?", a: ["Havalandırma borusundan", "Kanalizasyon (Pislik) borusundan", "Çamaşırhane sepetinden", "Mutfak kapısından"], correct: 1 },
-        { q: "Andy, hapishane müdürü Norton'ın kara paralarını aklarken hangi hayali ismi kullanmıştır?", a: ["Randall Stephens", "Peter Stevens", "John Dufresne", "Ellis Boyd"], correct: 0 },
-        { q: "Andy, kaçış planını tamamladıktan sonra Red've buluşmaları için işaret ettiği Meksika'daki o sahil kasabasının adı nedir?", a: ["Zihuatanejo", "Cancun", "Tijuana", "Acapulco"], correct: 0 },
-        { q: "Andy'nin hücre duvarındaki tüneli gizlemek için kullandığı ilk ikonik poster kime aittir?", a: ["Marilyn Monroe", "Rita Hayworth", "Raquel Welch", "Audrey Hepburn"], correct: 1 },
-        { q: "Andy'nin suçsuz olduğunu kanıtlayabilecek olan ama Müdür Norton tarafından susturulmak için öldürtülen genç mahkum kimdir?", a: ["Tommy Williams", "Brooks", "Bogs", "Elmo Blatch"], correct: 0 }
-    ],
-    hababamsinifi: [
-        { q: "Hababam Sınıfı'nın haylazlıklarına karşı sürekli disiplin sağlamaya çalışan Kel Mahmut'un asıl branşı nedir?", a: ["Matematik", "Tarih", "Coğrafya", "Edebiyat"], correct: 1 },
-        { q: "İnek Şaban karakterini canlandıran Türk sinemasının efsane oyuncusu kimdir?", a: ["Tarık Akan", "Kemal Sunal", "Halit Akçatepe", "Münir Özkul"], correct: 1 },
-        { q: "Hababam Sınıfı öğrencilerinin okuldan kaçıp sürekli gittikleri o meşhur futbol maçı hangi takımların arasındadır?", a: ["Galatasaray - Fenerbahçe", "Fenerbahçe - Beşiktaş", "Beşiktaş - Galatasaray", "Trabzonspor - Fenerbahçe"], correct: 0 },
-        { q: "Sınıfa yeni gelen ve Hafize Ana'nın kızı olan, Hababam Sınıfı'nın başta erkek zannedip trollediği karakter kimdir?", a: ["Semra Hoca", "Ayşegül", "Hürrem", "Filiz"], correct: 1 },
-        { q: "Şaban'ın meşhur 'Aç kapıyı Veysel Efendi' repliğinde bahsettiği okulun kapıcısının adı nedir?", a: ["Veysel Efendi", "Rıza Efendi", "Ahmet Efendi", "Hasan Efendi"], correct: 0 },
-        { q: "Sınıfın yakışıklısı lakabıyla bilinen, Tarık Akan'ın canlandırdığı karakterin adı nedir?", a: ["Güdük Necmi", "Damat Ferit", "Tulum Hayri", "Hayta İsmail"], correct: 1 },
-        { q: "Hababam Sınıfı'nın kopya çekmek için geliştirdiği ama Kel Mahmut'a yakalandığı meşhur yöntem hangisidir?", a: ["Sıraya yazma", "Tavana asma / Ayakkabı altına yazma", "Kulaklıkla dinleme", "Arkadaşından bakma"], correct: 1 },
-        { q: "Sınıfın sürekli uyuyan, uykucu lakaplı jenerasyonel karakteri kimdir?", a: ["Tulum Hayri", "Domdom Ali", "Hayta İsmail", "Uykucu Yaşar"], correct: 3 },
-        { q: "Edebiyat derslerine giren, şairliğiyle bilinen ve öğrencilerin şiirleriyle dalga geçtiği hoca kimdir?", a: ["Badi Ekrem", "Akil Hoca", "Şevket Hoca", "Avni Hoca"], correct: 1 },
-        { q: "Kırmızı eşofmanıyla hafızalara kazınan, sınıfa sürekli takla attırmaya çalışan beden eğitimi hocası kimdir?", a: ["Kel Mahmut", "Badi Ekrem (Şener Şen)", "Kül Yutmaz", "Paşa Nuri"], correct: 1 }
-    ]
+    { q: "What is the main place where the characters’ stories intersect in Yanyana?", a: ["School Campus", "Neighborhood Café", "Same Apartment Building", "Hospital"], correct: 2 },
+    { q: "What shared activity helps the characters break the ice between them?", a: ["Music Band", "Football Match", "Cooking", "Theater Play"], correct: 0 },
+    { q: "What is the major secret the main character hides in this drama?", a: ["Financial Debt", "Serious Health Issue", "Abroad Plans", "Missing Family Member"], correct: 1 },
+    { q: "In which season does the major turning point accident occur?", a: ["Summer", "Autumn", "Winter", "Spring"], correct: 2 },
+    { q: "What color theme is used in the film’s poster and symbolism?", a: ["Red-Black", "Blue-White", "Yellow-Black", "Green-Gray"], correct: 1 },
+    { q: "Which character is the wise old man who brings joy to the neighborhood?", a: ["Hulusi Bey", "Ahmet Uncle", "Rıza Captain", "Mehmet Teacher"], correct: 1 },
+    { q: "What is the main message delivered at the end of the film?", a: ["Loneliness", "Unity and Solidarity", "Entrepreneurship", "Fear"], correct: 1 },
+    { q: "Which instrument is most iconic in the emotional scenes?", a: ["Guitar", "Piano", "Violin", "Clarinet"], correct: 2 },
+    { q: "What is the main character’s biggest dream profession?", a: ["Painter", "Writer", "Architect", "Director"], correct: 1 },
+    { q: "What IMDb score is symbolized in CinePru?", a: ["8.5", "9.0", "9.5", "10"], correct: 3 }
+],
+
+theamazingspiderman: [
+    { q: "Who is Peter Parker’s first great love in high school?", a: ["Mary Jane Watson", "Gwen Stacy", "Michelle Jones", "Felicia Hardy"], correct: 1 },
+    { q: "Who is the scientist who becomes the Lizard?", a: ["Dr. Otto Octavius", "Dr. Curt Connors", "Dr. Norman Osborn", "Dr. Miles Warren"], correct: 1 },
+    { q: "Which company’s lab contains the radioactive spider?", a: ["Oscorp", "Stark Industries", "Pym Technologies", "Roxxon"], correct: 0 },
+    { q: "What is Gwen Stacy’s father’s job in New York?", a: ["Mayor", "Police Chief", "Journalist", "Scientist"], correct: 1 },
+    { q: "What distinctive mark does the burglar who killed Uncle Ben have?", a: ["Star tattoo", "Scorpion tattoo", "Wrist tattoo", "No tattoo"], correct: 2 },
+    { q: "What did Peter use for his mask’s eye lenses?", a: ["Sunglass lenses", "Camera lens", "Special plastic", "Bike helmet parts"], correct: 0 },
+    { q: "Why does Dr. Connors experiment with reptile DNA?", a: ["Cancer cure", "Regrowing his missing arm", "Immortality research", "Military weapons"], correct: 1 },
+    { q: "From where does the Lizard plan to release the virus?", a: ["Brooklyn Bridge", "Oscorp Tower", "Statue of Liberty", "Times Square"], correct: 1 },
+    { q: "Who dies tragically in the final battle?", a: ["Captain George Stacy", "Aunt May", "Dr. Connors", "Flash Thompson"], correct: 0 },
+    { q: "What does Spider-Man use to shoot webs?", a: ["Organic web glands", "Mechanical web shooters", "Special gloves", "Web tubes"], correct: 1 }
+],
+
+gameofthrones: [
+    { q: "Which house does Ned Stark lead?", a: ["Lannister", "Targaryen", "Stark", "Baratheon"], correct: 2 },
+    { q: "How many dragons does Daenerys initially hatch?", a: ["1", "2", "3", "4"], correct: 2 },
+    { q: "What is Jon Snow’s military order called?", a: ["Golden Company", "Night’s Watch", "Faith Militant", "Kingsguard"], correct: 1 },
+    { q: "What is Joffrey’s wedding death called?", a: ["Red Wedding", "Purple Wedding", "Black Wedding", "Winter Wedding"], correct: 1 },
+    { q: "What animal represents House Lannister?", a: ["Wolf", "Dragon", "Lion", "Stag"], correct: 2 },
+    { q: "Who is the main enemy beyond the Wall?", a: ["Mance Rayder", "Night King", "Ramsay Bolton", "Joffrey"], correct: 1 },
+    { q: "Which group trains Arya Stark in Braavos?", a: ["Faceless Men", "Brotherhood", "Wardens", "Ravens"], correct: 0 },
+    { q: "What is the name of the betrayal at the Red Wedding?", a: ["Purple Wedding", "Red Wedding", "Northern Wedding", "Silver Wedding"], correct: 1 },
+    { q: "What is Tyrion Lannister’s nickname?", a: ["Halfman / Imp", "Hound", "Kingslayer", "Sparrow"], correct: 0 },
+    { q: "What is the Iron Throne made of?", a: ["Gold", "Melted Swords", "Dragon Bone", "Stone and Emerald"], correct: 1 }
+],
+
+"12angryman": [
+    { q: "In which single location does almost the entire film take place?", a: ["Courtroom", "Prison Cell", "Jury Room", "Police Station"], correct: 2 },
+    { q: "Who is the first juror to vote 'Not Guilty'?", a: ["Juror 3", "Juror 8", "Juror 1", "Juror 12"], correct: 1 },
+    { q: "What is the defendant accused of?", a: ["Bank robbery", "Murdering his father", "Looting a store", "Treason"], correct: 1 },
+    { q: "What does Juror 8 prove about the murder weapon?", a: ["It was broken", "It is easily obtainable and common", "It had fingerprints", "It didn’t belong to the defendant"], correct: 1 },
+    { q: "Why is the old man’s testimony discredited?", a: ["He lied", "He couldn’t reach the door in time due to disability", "He was blind", "He was asleep"], correct: 1 },
+    { q: "What discredits the woman’s eyewitness claim?", a: ["She wore glasses but wasn’t wearing them at night", "Power outage", "Train blocked view", "She was blind"], correct: 0 },
+    { q: "What increases tension in the jury room?", a: ["Storm outside", "Broken fan and extreme heat", "Locked door", "Broken lights"], correct: 1 },
+    { q: "Which juror insists on guilty due to personal anger?", a: ["Juror 3", "Juror 7", "Juror 10", "Juror 1"], correct: 0 },
+    { q: "What is required for the verdict to be valid?", a: ["Majority vote", "Unanimous decision", "Oldest juror decides", "Judge approval"], correct: 1 },
+    { q: "What is Juror 8’s name revealed at the end?", a: ["Davis", "McCardle", "Smith", "Johnson"], correct: 0 }
+],
+
+thegodfather: [
+    { q: "Why does Vito Corleone help people on his daughter's wedding day?", a: ["To earn money", "Because Sicilian tradition says no request can be refused on that day", "For political power", "To escape the police"], correct: 1 },
+    { q: "Which son is ambushed and killed on the highway?", a: ["Michael", "Fredo", "Sonny", "Tom Hagen"], correct: 2 },
+    { q: "What does Jack Woltz find in his bed after refusing the Corleones?", a: ["A dead guard", "A horse’s severed head", "A bloody letter", "Dynamite"], correct: 1 },
+    { q: "Where does Michael kill Sollozzo and the police captain?", a: ["Casino", "Italian restaurant", "His home", "Street"], correct: 1 },
+    { q: "What is the name of the consigliere?", a: ["Tom Hagen", "Peter Clemenza", "Sal Tessio", "Luca Brasi"], correct: 0 },
+    { q: "Where does Michael flee for safety?", a: ["Las Vegas", "Sicily", "Rome", "Miami"], correct: 1 },
+    { q: "Where does Vito Corleone die?", a: ["Office", "Garden with his grandson", "Restaurant", "Bed"], correct: 1 },
+    { q: "When does Michael eliminate his enemies in a mass hit?", a: ["At a wedding", "At a baptism", "New Year’s Eve", "Funeral"], correct: 1 },
+    { q: "Who is killed for betraying the family in Las Vegas?", a: ["Carlo Rizzi", "Tessio", "Sollozzo", "Barzini"], correct: 0 },
+    { q: "Which quote is associated with the film?", a: ["Money opens every door", "I’ll make him an offer he can’t refuse", "Keep your friends close", "Justice is in the streets"], correct: 1 }
+],
+
+esaretinbedeli: [
+    { q: "What profession allows Andy Dufresne to help the prison staff?", a: ["Lawyer", "Banker / Accountant", "Teacher", "Doctor"], correct: 1 },
+    { q: "Who is Andy’s closest friend in prison?", a: ["Red (Morgan Freeman)", "Brooks", "Tommy", "Heywood"], correct: 0 },
+    { q: "How many years does Andy spend in Shawshank Prison?", a: ["10", "15", "19", "25"], correct: 2 },
+    { q: "What tool does Andy use to dig his escape tunnel?", a: ["Large pickaxe", "Small rock hammer", "Screwdriver", "Saw"], correct: 1 },
+    { q: "Who cannot adapt to the outside world after release and commits suicide?", a: ["Brooks Hatlen", "Tommy Williams", "Captain Byron", "Samuel Norton"], correct: 0 },
+    { q: "Through what does Andy escape the prison?", a: ["Air vent", "Sewer pipe", "Laundry basket", "Kitchen door"], correct: 1 },
+    { q: "What fake identity does Andy use for money laundering?", a: ["Randall Stephens", "Peter Stevens", "John Dufresne", "Ellis Boyd"], correct: 0 },
+    { q: "What is the name of the Mexican beach town where Andy meets Red?", a: ["Zihuatanejo", "Cancun", "Tijuana", "Acapulco"], correct: 0 },
+    { q: "Which actress is on the first poster hiding Andy’s tunnel?", a: ["Marilyn Monroe", "Rita Hayworth", "Raquel Welch", "Audrey Hepburn"], correct: 1 },
+    { q: "Who is killed to silence Andy’s evidence?", a: ["Tommy Williams", "Brooks", "Bogs", "Elmo Blatch"], correct: 0 }
+],
+
+hababamsinifi: [
+    { q: "What is Kel Mahmut’s main subject?", a: ["Math", "History", "Geography", "Literature"], correct: 1 },
+    { q: "Who plays İnek Şaban?", a: ["Tarık Akan", "Kemal Sunal", "Halit Akçatepe", "Münir Özkul"], correct: 1 },
+    { q: "Which football match do the students secretly attend?", a: ["Galatasaray - Fenerbahçe", "Fenerbahçe - Beşiktaş", "Beşiktaş - Galatasaray", "Trabzonspor - Fenerbahçe"], correct: 0 },
+    { q: "Who is the new student who is actually Hafize Ana’s daughter?", a: ["Semra", "Ayşegül", "Hürrem", "Filiz"], correct: 1 },
+    { q: "What is the name shouted in 'Open the door Veysel Efendi'?", a: ["Veysel Efendi", "Rıza Efendi", "Ahmet Efendi", "Hasan Efendi"], correct: 0 },
+    { q: "What is Damat Ferit’s role in the class?", a: ["The handsome student", "The troublemaker", "The athlete", "The class clown"], correct: 0 },
+    { q: "How do students cheat in exams?", a: ["Writing on desks", "Hidden notes in shoes/ceiling", "Headphones", "Copying directly"], correct: 1 },
+    { q: "Who is the sleepy student?", a: ["Tulum Hayri", "Domdom Ali", "Hayta İsmail", "Sleepy Yaşar"], correct: 3 },
+    { q: "Who teaches literature?", a: ["Badi Ekrem", "Akil Hoca", "Şevket Hoca", "Avni Hoca"], correct: 1 },
+    { q: "Who is the gym teacher known for red tracksuit?", a: ["Kel Mahmut", "Badi Ekrem", "Kül Yutmaz", "Paşa Nuri"], correct: 1 }
+]
 };
 
 let currentQuestions = [];
