@@ -143,13 +143,13 @@
             </nav>
 
             <div class="profile-dropdown">
-                <div class="profile-trigger">Profilim ▼</div>
+                <div class="profile-trigger">Profile ▼</div>
                 <div class="dropdown-menu">
-                    <a href="profile.html">Profilim</a>
+                    <a href="profile.html">Profie</a>
                     <a href="favorites.html">Favorites ❤️</a>
-                    <a href="settings.html">Ayarlar</a>
-                    <a href="history.html">Geçmiş</a>
-                    <a href="#" onclick="logoutUser()" style="border-top: 1px solid #222; color: #ff3333;">Çıkış Yap 🚪</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="#" onclick="logoutUser()" style="border-top: 1px solid #222; color: #ff3333;">Log Out 🚪</a>
                 </div>
             </div>
         </div>
@@ -157,8 +157,8 @@
 
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold text-gold"><i class="fas fa-history me-2"></i> İzleme Geçmişiniz</h2>
-            <button class="clear-btn" onclick="clearHistory()"><i class="fas fa-trash-alt me-1"></i> Geçmişi Temizle</button>
+            <h2 class="fw-bold text-gold"><i class="fas fa-history me-2"></i> Viewing History</h2>
+            <button class="clear-btn" onclick="clearHistory()"><i class="fas fa-trash-alt me-1"></i> Clear History</button>
         </div>
 
         <div id="historyGrid" class="row row-cols-1 row-cols-md-2 g-4">
@@ -166,7 +166,7 @@
 
         <div id="emptyMessage" class="text-center py-5" style="display: none;">
             <i class="fas fa-film fa-3x text-muted mb-3"></i>
-            <p class="text-muted fs-5">Henüz hiçbir film incelemediniz.</p>
+            <p class="text-muted fs-5">You havent reviewed any films  yet.</p>
             <a href="movies.html" class="btn btn-danger mt-2">Hemen Keşfet</a>
         </div>
     </div>
